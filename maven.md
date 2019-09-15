@@ -1,0 +1,48 @@
+### 阿里中央库
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings> 
+<localRepository>D:\Tools\java\maven\repository</localRepository><!--需要改成自己的maven的本地仓库地址-->
+    <mirrors>
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+  <profiles>
+    <profile>
+       <id>nexus</id> 
+        <repositories>
+            <repository>
+                <id>nexus</id>
+                <name>local private nexus</name>
+                <url>http://maven.oschina.net/content/groups/public/</url>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
+        </repositories>
+        
+        <pluginRepositories>
+            <pluginRepository>
+            <id>nexus</id>
+            <name>local private nexus</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            </pluginRepository>
+        </pluginRepositories>
+    </profile></profiles>
+</settings>
+```
+
