@@ -2,7 +2,7 @@
 
 - 对单个项目生效，在项目中的build.gradle中修改
 
-  ```java
+  ```json
   buildscript {
       repositories {
           maven {
@@ -28,7 +28,7 @@
 
 - 对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件
   
-```java
+```json
   allprojects {
       repositories {
           def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
@@ -53,8 +53,8 @@
           }
       }
   }
-  ```
-  
+```
+
   
 
 

@@ -1,4 +1,14 @@
-### 抓包命令
+### 命令
+
+#### mkdir 创建目录
+
+- -p 级联创建目录
+
+  - ```shell
+    mkdir -p /mydir/mytest
+    ```
+
+#### tcpdump 抓包命令
 
 ```shell
 tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
@@ -14,13 +24,18 @@ tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 
 - -w ./target.cap : 保存成cap文件，方便用ethereal(即wireshark)分析
 - -XX 显示数据内容
 
-### 查看端口号
+#### lsof 查看端口号
 
 ```shell
 lsof -i : 51026
 ```
 
+#### netstat 查看端口号
+
 ```shell
 sudo apt install net-tools
 netstat 
 ```
+
+
+

@@ -1,4 +1,4 @@
-## 1、subtree
+### subtree
 
 - git: 'subtree' is not a git command. See 'git --help'. 的问题
 
