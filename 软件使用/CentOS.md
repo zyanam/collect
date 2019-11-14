@@ -37,5 +37,11 @@ sudo apt install net-tools
 netstat 
 ```
 
+#### top 
+
+```shell
+top -Hp PID  #查看某一进程详情
+```
+
 
 
