@@ -19,18 +19,48 @@
 
 1. -f 指定dockerfile
    1. docker build -f docker-file
+   2. 如果 DockerFile在当前目录，可以不用指定 
 2. -t 指定名称
    1. docker build -f docker-file -t mycentos:1.3 .
+   2. . 代表当前路径
 
-#### docker run
+#### docker run 运行容器
 
 1. -p 端口映射
+   
    1. docker run -p 7777:8080 tomcat 前面是宿主机端口，后面是容器内端口
+   
 2. -P 使用随机端口映射
+
 3. 指定CMD
+   
    1. docker run tomcat ls -s
+   
+4. -d 后台运行
+
+5. -name 指定名字
+
+6. -v 指定容器卷
+
+7. ```shell
+   -v /var/tmp:/usr/local	#前面是宿主机路径，后面是容器路径
+   ```
+
+8. 
 
 #### docker info 查看容器信息
+
+#### docker exec 在容器里执行shell
+
+```shell
+docker run 89092829323 ls -l
+```
+
+#### docker commit 
+
+```shell
+docker commit -a 作者 -m "说明" container id name:tag
+```
 
 
 
@@ -87,7 +117,19 @@ ENV mypath /tmp
 
 #### ADD  将宿主机的文件拷贝到镜像内，并且自动处理URL和解压tar包
 
+```dockerfile
+ADD jdk-8u171-linux-x64.tar.gz /usr/local/
+```
+
+
+
 #### COPY  将宿主机的文件拷贝到镜像内，不处理URL和tar包
+
+```dockerfile
+COPY c.txt /usr/local/cincontainer.txt
+```
+
+
 
 #### VOLUME  挂载容器数据券，相对应的宿主机目录可以使用docker info 查看
 
@@ -110,6 +152,12 @@ ENTRYPOINT ["curl","-s","http://ip.cn"]
 
 
 #### ONBUILD  当镜像被继承时触发
+
+```dockerfile
+ONBUILD echo "hello"
+```
+
+
 
   
 

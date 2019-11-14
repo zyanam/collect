@@ -1,33 +1,33 @@
 ### 配置gradle使用国内镜像库
 
-- 对单个项目生效，在项目中的build.gradle中修改
+#### 对单个项目生效，在项目中的build.gradle中修改
 
-  ```json
-  buildscript {
-      repositories {
-          maven {
-              url 'http://maven.aliyun.com/nexus/content/groups/public/'
-          }
-          maven {
-              url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
-          }
-      }
-  }
-  
-  allprojects {
-      repositories {
-          maven {
-              url 'http://maven.aliyun.com/nexus/content/groups/public/'
-          }
-          maven {
-              url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
-          }
-      }
-  }
-  ```
+```json
+buildscript {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+    }
+}
 
-- 对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件
-  
+allprojects {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+    }
+}
+```
+
+#### 对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件
+
 ```json
   allprojects {
       repositories {
