@@ -14,7 +14,7 @@
 
 运行在操作系统之上的，与硬件没有直接交互。
 
-![05D5AF57-6269-4555-BFA7-A69FE005B8F2](/Users/yanam/gitee/collect/imgs/05D5AF57-6269-4555-BFA7-A69FE005B8F2.png)
+![05D5AF57-6269-4555-BFA7-A69FE005B8F2](../imgs/05D5AF57-6269-4555-BFA7-A69FE005B8F2.png)
 
 #### 类装载器ClassLoader
 
@@ -30,10 +30,17 @@
     - 也叫系统类加载器，加载当前应用的classpath的所有类 
   - 双亲委派机制 + 沙箱机制（防止恶意代码的破坏 ）
     - 某个特定的类加载器在接到加载类的请求时，首先将加载任务委托给父类加载器，一次递归，如果父类加载器可以完成类加载任务，就成功返回；只有父类加载器无法完成此加载任务时，才自己去加载。
-- 执行引擎（Execution Engine）
-  - 负责解释命令，提交操作系统执行。
-- 本地方法接口（Native Interface）
-  - 通过JNI接口调用其它语言实现底层访问。
+
+#### 执行引擎（Execution Engine）
+
+- 负责解释命令，提交操作系统执行。
+
+#### 本地方法接口（Native Interface）
+
+- 通过JNI接口调用其它语言实现底层访问。
+
+#### 运行时数据区
+
 - PC寄存器
   - 每个线程都有一个程序计数器，是线程私有的，就是一个指针，指向方法区中的方法字节码（用来存储指向下一条指令的地址，也即将要执行的指令代码），有执行引擎读取下一条指令，是一个非常小的内存空间，几乎可以忽略不计。
 - Java 栈
@@ -59,12 +66,14 @@
     - -Xms1024m -Xmx1024m -XX:+PrintGCDetails
   - OutOfMemoryError
     - 死循环，随机字符串叠加。
-- MAT（Eclipse Memory Analyzer）
-  - 分析dump文件，快速定位内存泄露；
-  - 获得对中对象的统计数据
-  - 获得对象相互饮用的关系
-  - 采用树形展现对象间相互饮用的情况。
-  - 支持使用QQL芋圆来查询对象信息。
-  - -XX:+HeapDumpOnOutOfMemoryError
-    - OOM时导出堆到hprof文件
+
+#### MAT（Eclipse Memory Analyzer）
+
+- 分析dump文件，快速定位内存泄露；
+- 获得对中对象的统计数据
+- 获得对象相互饮用的关系
+- 采用树形展现对象间相互饮用的情况。
+- 支持使用QQL芋圆来查询对象信息。
+- -XX:+HeapDumpOnOutOfMemoryError
+  - OOM时导出堆到hprof文件
 

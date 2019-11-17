@@ -37,9 +37,9 @@
         git remote add -f <sub 项目的仓库名> <sub 项目的远程仓库地址>
         ```
 
-        ![TIM截图20190918112507.png](imgs\TIM截图20190918112721.png)
+        ![TIM截图20190918112507.png](..\imgs\TIM截图20190918112721.png)
 
-        ![](imgs/TIM截图20190918112843.png)
+        ![](../imgs/TIM截图20190918112843.png)
 
         ``` shell
         -f 表示添加远程仓库后立即执行 fetch
@@ -51,7 +51,7 @@
         git subtree add --prefix=<sub 项目的目录名> <sub 项目的仓库名> <分支> --squash
         ```
 
-        ![](imgs/TIM截图20190918113633.png)
+        ![](../imgs/TIM截图20190918113633.png)
 
         已经把 sub 项目的原来同步下来了。
 
@@ -66,7 +66,7 @@
         git fetch subproject master
         ```
 
-        ![](imgs/TIM截图20190918114622.png)
+        ![](../imgs/TIM截图20190918114622.png)
 
      4. 从远程仓库获取
 
@@ -75,13 +75,13 @@
         git subtree pull --prefix subproject subproject master --squash
         ```
 
-        ![](imgs/TIM截图20190918114709.png)
+        ![](../imgs/TIM截图20190918114709.png)
 
      5. push sub 项目的修改
 
         先进入 sub 项目的目录，然后 add  commit
 
-        ![](imgs/TIM截图20190918115148.png)
+        ![](../imgs/TIM截图20190918115148.png)
 
         回到上级目录执行 push
 
@@ -89,7 +89,7 @@
         git subtree push --prefix=<sub 项目的目录名> <sub 项目的远程分支名> 分支
         ```
   
-        ![](imgs/TIM截图20190918125634.png)
+        ![](../imgs/TIM截图20190918125634.png)
   
      6. 
   
@@ -97,29 +97,29 @@
   
      1. 依次点击菜单： file -> Project Structure 或点击工具栏图标。
   
-        ![](imgs/微信图片_20190918130147.png)
+        ![](../imgs/微信图片_20190918130147.png)
   
      2. 在打开的对话框里依次点击 Modules -> 加号 -> Import Module
   
-        ![](imgs/TIM截图20190918135709.png)
+        ![](../imgs/TIM截图20190918135709.png)
   
      3. 在弹出的对话框中选择 sub 项目所在的目录
   
-        ![](imgs/TIM截图20190918135856.png)
+        ![](../imgs/TIM截图20190918135856.png)
   
         选择 sub 项目的类型，其它使用默认设置，一路下一步。
   
-        ![](imgs/TIM截图20190918140016.png)
+        ![](../imgs/TIM截图20190918140016.png)
   
         
   
      4. 选择 main 项目 -> Dependencies -> 加号 -> Module Dependency ,如下图
   
-        ![](imgs/TIM截图20190918140506.png)
+        ![](../imgs/TIM截图20190918140506.png)
   
      5. 在弹出的对话框中选择 sub 项目，确定，最终如下图
   
-        ![](imgs/TIM截图20190918140626.png)
+        ![](../imgs/TIM截图20190918140626.png)
   
      6. 完成整合
   
