@@ -2,16 +2,62 @@
 
 ### 命令
 
+```dockerfile
+usage: docker [options] COMMAND [arg...]
+```
+
+#### docker version 
+
+#### docker info
+
+#### docker --help 
+
+### 镜像命令
+
 #### docker images 镜像列表
 
-1. -q 只显示ID
-2. -a 显示全部 
-3. --digests 显示详细信息
+```dockerfile
+docker images -q -a --digests --no-trunc
+```
+
+- -q 只显示ID
+- -a 显示全部 
+- --digests 显示详细信息
+- --no-trunc 不要截取
+
+#### docker search 从hub.docker上查找镜像
+
+```dockerfile
+docker search -s 30 centos --automated
+```
+
+- -s star大于多少个
+- --automated 自动构建的
+
+#### docker pull cents 拉取镜像
+
+```dockerfile
+
+```
+
+
+
+#### docker rmi 删除镜像
+
+```dockerfile
+docker rmi -f image id
+```
+
+- -f 强制删除
+
+### 容器命令
+
+#### docker run
 
 #### docker rm 删除容器
 
-1. -f  强制删除
-   1. docker rm -f $(docker ps -q)  全部删除
+- - f  强制删除
+- docker rm -f $(docker ps -q)  全部删除
 
 #### docker ps 正在运行的容器
 
@@ -27,13 +73,13 @@
 #### docker run 运行容器
 
 1. -p 端口映射
-   
+  
    1. docker run -p 7777:8080 tomcat 前面是宿主机端口，后面是容器内端口
    
 2. -P 使用随机端口映射
 
 3. 指定CMD
-   
+  
    1. docker run tomcat ls -s
    
 4. -d 后台运行
@@ -56,7 +102,7 @@
 docker run 89092829323 ls -l
 ```
 
-#### docker commit 
+#### docker commit 将容器提交成镜像
 
 ```shell
 docker commit -a 作者 -m "说明" container id name:tag
