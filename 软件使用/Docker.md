@@ -40,11 +40,17 @@ docker search -s 30 centos --automated
 
 ```
 
+#### docker logs
+
+```shell
+docker logs container id
+```
+
 
 
 #### docker rmi 删除镜像
 
-```dockerfile
+```shell
 docker rmi -f image id
 ```
 
