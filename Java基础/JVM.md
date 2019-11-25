@@ -14,7 +14,7 @@
 
 运行在操作系统之上的，与硬件没有直接交互。
 
-![05D5AF57-6269-4555-BFA7-A69FE005B8F2](/Users/yanam/gitee/collect/imgs/05D5AF57-6269-4555-BFA7-A69FE005B8F2.png)
+![05D5AF57-6269-4555-BFA7-A69FE005B8F2](../imgs/05D5AF57-6269-4555-BFA7-A69FE005B8F2.png)
 
 #### 类装载器ClassLoader
 
@@ -67,4 +67,12 @@
   - 支持使用QQL芋圆来查询对象信息。
   - -XX:+HeapDumpOnOutOfMemoryError
     - OOM时导出堆到hprof文件
+
+#### dump JVM 的进程线程
+
+```shell
+jstack PID > thread.txt
+```
+
+
 
