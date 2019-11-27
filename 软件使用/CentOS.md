@@ -43,5 +43,40 @@ netstat
 top -Hp PID  #查看某一进程详情
 ```
 
+#### ls
+
+```shell
+ls -lrt
+```
+
+- -r 倒序
+- -t  sort by modification time
+
+#### ssh
+
+```shell
+ssh root@60.10.139.120 -p 2206
+```
+
+- -p 指定端口号（小写）
+
+#### scp
+
+```shell
+scp -P 2206 *.jar root@60.10.139.120:~/
+```
+
+- -P 指定端口号(大写)
+
+#### ps
+
+查看线程占用cpu时间
+
+```shell
+ps -mp 5550 -o THREAD,tid,time
+```
+
+
+
 
 

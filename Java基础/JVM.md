@@ -77,3 +77,11 @@
 - -XX:+HeapDumpOnOutOfMemoryError
   - OOM时导出堆到hprof文件
 
+#### dump JVM 的进程线程
+
+```shell
+jstack PID > thread.txt
+```
+
+
+

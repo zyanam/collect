@@ -12,15 +12,19 @@ netstat -an|find "xxx.xxx.xxx.xxx:端口" | find  "ESTABLISHED" /c
 #### 抓包命令
 
 ```powershell
-netsh trace start capture=yes traceFile="c:\\snmp.etl" overwrite=yes correlation=no protocol=udp ipv4.address=11.11.11.11
+netsh trace start capture=yes traceFile="c:\\snmp.etl" overwrite=yes correlation=no protocol=tcp ipv4.address=11.11.11.11
 
 netsh trace stop
 
 #参考：https://www.microsoft.com/en-us/download/confirmation.aspx?id=44226
 ```
 
+```powershell
+netsh trace start capture=YES report=YES persistent=YES
+netsh trace stop
+```
 
 
 
 
-1. 
+
