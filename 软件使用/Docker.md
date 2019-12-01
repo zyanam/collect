@@ -60,9 +60,35 @@ docker rmi -f image id
 
 #### docker run
 
+##### MySQL
+
+```shell
+docker run 
+
+-p 3306:3306 
+
+--name mysql 
+
+-v D:\DockerDesktop\mysql\conf:/etc/mysql/conf.d 
+
+-v D:\DockerDesktop\mysql\logs:/logs 
+
+-v D:\DockerDesktop\mysql\data:/var/lib/mysql 
+
+-e MYSQL_ROOT_PASSWORD=123456 
+
+-d mysql:5.6
+```
+
+###### 交互运行
+
+```shell
+docker exec -it ba194da55684 /bin/bash
+```
+
 #### docker rm 删除容器
 
-- - f  强制删除
+- -f  强制删除
 - docker rm -f $(docker ps -q)  全部删除
 
 #### docker ps 正在运行的容器

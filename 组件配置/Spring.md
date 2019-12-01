@@ -21,3 +21,21 @@
 | request   | 请求，表示在一次http请求内有效                |
 | session   | 会话，表示在一个会话内有效                    |
 
+### 声明式事务
+
+- 开启事务管理
+
+  - @EnableTransactionManagement
+
+- ```java
+  //注入事务管理器
+  @Bean
+  public PlatformTransactionManager transactionManager() throws PropertyVetoException {
+      return new DataSourceTransactionManager(dataSource());
+  }
+  ```
+
+- 标明事务
+
+  - @Transactional
+
