@@ -1,6 +1,6 @@
 ### 命令
 
-#### mkdir 创建目录
+### mkdir 创建目录
 
 - -p 级联创建目录
 
@@ -8,7 +8,7 @@
     mkdir -p /mydir/mytest
     ```
 
-#### tcpdump 抓包命令
+### tcpdump 抓包命令
 
 ```shell
 tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
@@ -24,26 +24,27 @@ tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 
 - -w ./target.cap : 保存成cap文件，方便用ethereal(即wireshark)分析
 - -XX 显示数据内容
 
-#### lsof 查看端口号
+### lsof 查看端口号
 
 ```shell
 lsof -i : 51026
 ```
 
-#### netstat 查看端口号
+### netstat 查看端口号
 
 ```shell
 sudo apt install net-tools
 netstat 
+netstat -nlpt
 ```
 
-#### top 
+### top 
 
 ```shell
 top -Hp PID  #查看某一进程详情
 ```
 
-#### ls
+### ls
 
 ```shell
 ls -lrt
@@ -52,7 +53,7 @@ ls -lrt
 - -r 倒序
 - -t  sort by modification time
 
-#### ssh
+### ssh
 
 ```shell
 ssh root@60.10.139.120 -p 2206
@@ -60,7 +61,7 @@ ssh root@60.10.139.120 -p 2206
 
 - -p 指定端口号（小写）
 
-#### scp
+### scp
 
 ```shell
 scp -P 2206 *.jar root@60.10.139.120:~/
@@ -68,13 +69,25 @@ scp -P 2206 *.jar root@60.10.139.120:~/
 
 - -P 指定端口号(大写)
 
-#### ps
+### ps
 
 查看线程占用cpu时间
 
 ```shell
 ps -mp 5550 -o THREAD,tid,time
 ```
+
+### tee  向 standout输出的同时也将内容输出到文件
+
+```shell
+ping baidu.com | tee ping-baidu.log #输出到控制台的同时，将内容保存到ping-baidu.log文件中
+```
+
+```shell
+:w !sudo tee %  #vi 编辑完文件，没有权限保存
+```
+
+
 
 
 
