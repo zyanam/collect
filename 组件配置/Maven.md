@@ -321,5 +321,16 @@ dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/test");
 </dependency>
 ```
 
+### HttpServlet
+
+```xml
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
+</dependency>
+```
+
 
 

@@ -12,6 +12,12 @@ cmd+alt+t
 ctr + H 
 ```
 
+#### 重新编译
+
+```shell
+ctr + F9
+```
+
 
 
 
