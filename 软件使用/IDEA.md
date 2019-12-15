@@ -1,6 +1,6 @@
 
 
-### 编译错误
+### 错误解决
 
 #### Error:java: 不再支持源选项 5。请使用 6 或更高版本。
 
@@ -41,4 +41,8 @@ pom.xml
 #### 创建文件显示问号，无法用IDEA打开
 
 在 Setting -> Editor -> File Types 删除相应的文件即可。
+
+#### 无法导入java.util.date
+
+在 Setting -> Editor -> General -> Auto Import 删除 java.util.date 即可
 
