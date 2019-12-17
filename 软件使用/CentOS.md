@@ -87,6 +87,27 @@ ping baidu.com | tee ping-baidu.log #输出到控制台的同时，将内容保�
 :w !sudo tee %  #vi 编辑完文件，没有权限保存
 ```
 
+### tar
+
+```shell
+-zvf		仅打包，不压缩
+-czvf 		压缩，*.tar.gz
+-cjvf		压缩，*.tar.bz2
+-xzvf		解压，*.tar.gz
+-xjvf		解压，*.tar.bz2
+-c			建立压缩档案
+-x			解开压缩档案
+-t			查看压缩档案内容
+-z			gzip压缩
+-j			bzip2压缩
+-v			显示执行过程
+-f			使用档案名，注意-f之后不能有其他参数，直接接档案名
+(e.g.)tar -zvxf <tarfile>
+-C			指定解压目录
+```
+
+
+
 ### 高并发优化
 
 #### 最大文件描述符
@@ -159,7 +180,7 @@ net.ipv4.tcp_mem = 94500000 915000000 927000000
 net.ipv4.tcp_fin_timeout = 1
 ```
 
-#### 重载拍配置
+#### 重载配置
 
 ```shell
  sysctl -p

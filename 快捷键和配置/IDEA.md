@@ -18,6 +18,14 @@ ctr + H
 ctr + F9
 ```
 
+### 左侧对勾
+
+![](../imgs/TIM截图20191211135539.png)
+
+```java
+ctr + 鼠标左键
+```
+
 
 
 
@@ -61,7 +69,7 @@ curl http://127.0.0.1:2375/info		#验证是否生效
 
 File -> Setting -> Build,Excution,Deployment -> Docker 打开配置界面
 
-![](C:/gitee/collect/imgs/docker1.png)
+![](../imgs/docker1.png)
 
 修改 pom.xml
 
@@ -100,7 +108,7 @@ File -> Setting -> Build,Excution,Deployment -> Docker 打开配置界面
 
 工程目录下创建 Dockerfile
 
-![](C:/gitee/collect/imgs/docker2.png)
+![](../imgs/docker2.png)
 
 ```dockerfile
 FROM java:8
@@ -113,7 +121,7 @@ ENTRYPOINT ["java","-jar","demo.jar"]
 
 创建 Docker 镜像
 
-![](C:/gitee/collect/imgs/docker3.png)
+![](../imgs/docker3.png)
 
 执行即可
 
@@ -134,7 +142,7 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=tra
 
 创建远程调试
 
-![](C:/gitee/collect/imgs/docker4.png)
+![](../imgs/docker4.png)
 
 启动调试即可
 

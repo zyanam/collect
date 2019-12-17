@@ -60,25 +60,7 @@ docker rmi -f image id
 
 #### docker run
 
-##### MySQL
 
-```shell
-docker run 
-
--p 3306:3306 
-
---name mysql 
-
--v D:\DockerDesktop\mysql\conf:/etc/mysql/conf.d 
-
--v D:\DockerDesktop\mysql\logs:/logs 
-
--v D:\DockerDesktop\mysql\data:/var/lib/mysql 
-
--e MYSQL_ROOT_PASSWORD=123456 
-
--d mysql:5.6
-```
 
 ###### 交互运行
 
@@ -209,7 +191,7 @@ COPY c.txt /usr/local/cincontainer.txt
 
 
 
-#### VOLUME  挂载容器数据券，相对应的宿主机目录可以使用docker info 查看
+#### VOLUME  挂载容器数据卷，相对应的宿主机目录可以使用docker info 查看
 
 #### CMD  指定容器启动时要运行的命令，最后一个覆盖前面的
 
@@ -235,9 +217,45 @@ ENTRYPOINT ["curl","-s","http://ip.cn"]
 ONBUILD echo "hello"
 ```
 
+### 参考
 
+1. [使用idea调试运行在docker容器的Java实例](https://www.jianshu.com/p/7d685dce1440)
+2. [idea远程部署war到docker](https://blog.csdn.net/yu757371316/article/details/81133167)
+3. [IDEA调试Java+Docker+Tomcat+Spring程序](https://www.awaimai.com/2608.html)
 
-  
+### 部署
+
+#### MySQL
+
+```shell
+docker run 
+-p 3306:3306 
+--name mysql 
+-v D:\DockerDesktop\mysql\conf:/etc/mysql/conf.d 
+-v D:\DockerDesktop\mysql\logs:/logs 
+-v D:\DockerDesktop\mysql\data:/var/lib/mysql 
+-e MYSQL_ROOT_PASSWORD=123456 
+-d mysql:5.6
+```
+
+#### Tomcat
+
+```shell
+docker run -p 8080:8080 --name tomcat8 -d tomcat:8.0
+docker exec -it tomcat8 bash
+exit
+docker cp Demo.war tomcat8:/usr/local/tomcat/webapps
+docker restart tomcat8
+```
+
+### 其它
+
+#### 修改运行的容器的端口号
+
+```shell
+/var/lib/docker/containers/[hash_of_the_container]/hostconfig.json
+```
+
 
 
 
