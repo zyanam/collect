@@ -88,14 +88,18 @@ docker exec -it ba194da55684 /bin/bash
 
 1. -p 端口映射
   
-   1. docker run -p 7777:8080 tomcat 前面是宿主机端口，后面是容器内端口
+   ```shell
+   docker run -p 7777:8080 tomcat #前面是宿主机端口，后面是容器内端口
+   
+   docker run -p 51025:8080 --name bdwebapi -d tomcat:jdk8
+   ```
    
 2. -P 使用随机端口映射
 
 3. 指定CMD
-  
+
    1. docker run tomcat ls -s
-   
+
 4. -d 后台运行
 
 5. -name 指定名字
