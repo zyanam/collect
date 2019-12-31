@@ -68,6 +68,14 @@ docker rmi -f image id
 docker exec -it ba194da55684 /bin/bash
 ```
 
+###### 挂载容器卷
+
+```shell
+docker run -p 51025:8080 -v /root/container-volume/bdwebapi/webapps:/usr/local/tomcat/webapps --name bdwebapi -d tomcat:jdk8
+```
+
+
+
 #### docker rm 删除容器
 
 - -f  强制删除
@@ -129,6 +137,8 @@ docker commit -a 作者 -m "说明" container id name:tag
 
 
 ### DockerFile
+
+
 
 #### FROM   指定当前镜像的源
 
@@ -203,6 +213,8 @@ COPY c.txt /usr/local/cincontainer.txt
 CMD echo "ok"
 CMD /bin/bash
 CMD ["curl","-s","http://ip.cn"]
+CMD tail -f /dev/null #能让控制台不推出
+
 ```
 
 
