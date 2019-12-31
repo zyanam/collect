@@ -71,7 +71,20 @@ docker exec -it ba194da55684 /bin/bash
 ###### 挂载容器卷
 
 ```shell
-docker run -p 51025:8080 -v /root/container-volume/bdwebapi/webapps:/usr/local/tomcat/webapps --name bdwebapi -d tomcat:jdk8
+$ docker run -p 51025:8080 -v /root/container-volume/bdwebapi/webapps:/usr/local/tomcat/webapps --name bdwebapi -d tomcat:jdk8
+```
+
+###### 真正的root权限
+
+```shell
+$ docker run -it --name webapi --privileged -p 51025:8080 -d fb746854f8e3 /usr/sbin/init
+--privileged
+```
+
+###### 设置时区
+
+```shell
+$ docker run -e "TZ=Asia/Shanghai"
 ```
 
 
@@ -213,7 +226,7 @@ COPY c.txt /usr/local/cincontainer.txt
 CMD echo "ok"
 CMD /bin/bash
 CMD ["curl","-s","http://ip.cn"]
-CMD tail -f /dev/null #能让控制台不推出
+CMD tail -f /dev/null #能让控制台不退出
 
 ```
 
