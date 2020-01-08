@@ -77,6 +77,7 @@ $ docker run -p 51025:8080 -v /root/container-volume/bdwebapi/webapps:/usr/local
 ###### 真正的root权限
 
 ```shell
+# 如果要是用systemctl 管理服务就要加上参数 --privileged 来增加权，并且不能使用默认的bash，换成 init
 $ docker run -it --name webapi --privileged -p 51025:8080 -d fb746854f8e3 /usr/sbin/init
 --privileged
 ```
@@ -277,12 +278,32 @@ docker cp Demo.war tomcat8:/usr/local/tomcat/webapps
 docker restart tomcat8
 ```
 
+### 开启SSH
+
+```shell
+$ yum install -y openssh*
+
+#修改root密码
+$ passwd
+
+#修改配置文件
+$ vi /etc/ssh/sshd_config
+PermitRootLogin yes  #允许root用户ssh登录
+UsePAM no            ##禁用PAM
+
+#重启ssh
+systemctl restart sshd
+```
+
+
+
 ### 其它
 
 #### 修改运行的容器的端口号
 
 ```shell
 /var/lib/docker/containers/[hash_of_the_container]/hostconfig.json
+$ docker inspact containerID
 ```
 
 
