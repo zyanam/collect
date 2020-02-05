@@ -236,6 +236,21 @@ try {
 </dependency>
 ```
 
+### IDEA的Maven是不会编译src的java目录的xml文件
+
+```xml
+ <build>
+    <resources>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+    </resources>
+</build>
+```
+
 
 
 ### 数据库连接池
@@ -330,6 +345,18 @@ dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/test");
     <version>3.0.1</version>
     <scope>provided</scope>
 </dependency>
+```
+
+#### 设置java版本，以及字符编码设置
+
+```properties
+<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <encoding>UTF-8</encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
 ```
 
 

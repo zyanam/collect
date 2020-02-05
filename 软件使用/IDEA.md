@@ -46,3 +46,7 @@ pom.xml
 
 在 Setting -> Editor -> General -> Auto Import 删除 java.util.date 即可
 
+### java.lang.ClassNotFoundException: org.springframework.web.servlet.DispatcherServlet
+
+![TIM截图20200105205727](../imgs/TIM截图20200105205727.png)
+
