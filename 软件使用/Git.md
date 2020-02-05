@@ -1,5 +1,24 @@
 
 
+### 常用命令
+
+#### git branch
+
+```shell
+git branch -r #查看远程分支
+git branch -a #查看所有分支
+
+```
+
+#### gti checkout
+
+```shell
+git checkout -b dev1078 origin/dev1078 #迁出远程分支，在本地建立分支
+
+```
+
+
+
 ### subtree
 
 - git: 'subtree' is not a git command. See 'git --help'. 的问题

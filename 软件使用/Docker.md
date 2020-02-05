@@ -68,6 +68,28 @@ docker rmi -f image id
 docker exec -it ba194da55684 /bin/bash
 ```
 
+###### 挂载容器卷
+
+```shell
+$ docker run -p 51025:8080 -v /root/container-volume/bdwebapi/webapps:/usr/local/tomcat/webapps --name bdwebapi -d tomcat:jdk8
+```
+
+###### 真正的root权限
+
+```shell
+# 如果要是用systemctl 管理服务就要加上参数 --privileged 来增加权，并且不能使用默认的bash，换成 init
+$ docker run -it --name webapi --privileged -p 51025:8080 -d fb746854f8e3 /usr/sbin/init
+--privileged
+```
+
+###### 设置时区
+
+```shell
+$ docker run -e "TZ=Asia/Shanghai"
+```
+
+
+
 #### docker rm 删除容器
 
 - -f  强制删除
@@ -88,14 +110,18 @@ docker exec -it ba194da55684 /bin/bash
 
 1. -p 端口映射
   
-   1. docker run -p 7777:8080 tomcat 前面是宿主机端口，后面是容器内端口
+   ```shell
+   docker run -p 7777:8080 tomcat #前面是宿主机端口，后面是容器内端口
+   
+   docker run -p 51025:8080 --name bdwebapi -d tomcat:jdk8
+   ```
    
 2. -P 使用随机端口映射
 
 3. 指定CMD
-  
+
    1. docker run tomcat ls -s
-   
+
 4. -d 后台运行
 
 5. -name 指定名字
@@ -125,6 +151,8 @@ docker commit -a 作者 -m "说明" container id name:tag
 
 
 ### DockerFile
+
+
 
 #### FROM   指定当前镜像的源
 
@@ -199,6 +227,8 @@ COPY c.txt /usr/local/cincontainer.txt
 CMD echo "ok"
 CMD /bin/bash
 CMD ["curl","-s","http://ip.cn"]
+CMD tail -f /dev/null #能让控制台不退出
+
 ```
 
 
@@ -248,12 +278,32 @@ docker cp Demo.war tomcat8:/usr/local/tomcat/webapps
 docker restart tomcat8
 ```
 
+### 开启SSH
+
+```shell
+$ yum install -y openssh*
+
+#修改root密码
+$ passwd
+
+#修改配置文件
+$ vi /etc/ssh/sshd_config
+PermitRootLogin yes  #允许root用户ssh登录
+UsePAM no            ##禁用PAM
+
+#重启ssh
+systemctl restart sshd
+```
+
+
+
 ### 其它
 
 #### 修改运行的容器的端口号
 
 ```shell
 /var/lib/docker/containers/[hash_of_the_container]/hostconfig.json
+$ docker inspact containerID
 ```
 
 
