@@ -2,9 +2,13 @@
 
 #### try-catch-finally
 
-ctrl+alt+t
+```java
+ctl+alt+t
 
 cmd+alt+t
+```
+
+
 
 #### 打开继承树
 
@@ -18,7 +22,7 @@ ctr + H
 ctr + F9
 ```
 
-### 左侧对勾
+### 左侧对勾(书签)
 
 ![](../imgs/TIM截图20191211135539.png)
 
@@ -26,7 +30,13 @@ ctr + F9
 ctr + 鼠标左键
 ```
 
-#### 
+### 查看当前类所有方法
+
+```java
+alt + 7
+```
+
+
 
 
 

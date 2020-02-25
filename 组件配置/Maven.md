@@ -204,6 +204,18 @@ try {
 </dependency>
 ```
 
+### SpringMVC
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.2.1.RELEASE</version>
+</dependency>
+```
+
+
+
 ### 自动生成getter和setter方法(lombok)
 
 ```xml
@@ -213,6 +225,7 @@ try {
     <version>1.18.10</version>
     <scope>provided</scope>
 </dependency>
+<!--可能需要装插件-->
 ```
 
 ### 单元测试(junit)
@@ -249,6 +262,41 @@ try {
         </resource>
     </resources>
 </build>
+```
+
+### FastJson
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.62</version>
+</dependency>
+
+```
+
+### JSR 数据校验
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
+
+
+
+### RESTful
+
+```xml
+<filter>
+    <filter-name>hiddenHttpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>hiddenHttpMethodFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
 ```
 
 
