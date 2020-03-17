@@ -39,3 +39,39 @@
 </bean>
 ```
 
+### 处理全局异常
+
+```java
+public class MyExceptionResolver implements HandlerExceptionResolver {
+
+    @Override
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+//        String url = request.getRequestURI();
+        String url = request.getHeader("Referer");
+        String title = "";
+        String msg = "";
+        if (ex instanceof UnauthorizedException) {
+            title = "权限不足";
+            msg = "没有权限，请联系管理员!";
+        } else {
+            title = "运行错误";
+            msg = ex.getMessage();
+        }
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/auth/unauthorized");
+        modelAndView.addObject("url", url);
+        modelAndView.addObject("title", title);
+        modelAndView.addObject("msg", msg);
+
+        return modelAndView;
+    }
+    
+    //加入容器
+    @Bean
+    public MyExceptionResolver myExceptionResolver() {
+        return new MyExceptionResolver();
+    }
+
+```
+

@@ -71,7 +71,23 @@ SELECT * FROM 表名 WHERE DATE_FORMAT( 时间字段名, '%Y%m' ) = DATE_FORMAT(
    
    ```
 
-4. 
+
+### Order by 中文
+
+```sql
+SELECT * FROM tbl_permission ORDER BY CONVERT(resource_name USING gbk)
+```
+
+解决方法：
+对于包含中文的字段加上”binary”属性，使之作为二进制比较，例如将”name char(10)”改成”name char(10)binary”。
+如果你使用源码编译MySQL，可以编译MySQL时使用 –with–charset=gbk 参数，这样MySQL就会直接支持中文查找和排序了（默认的是latin1）。也可以用 extra-charsets=gb2312,gbk 来加入多个字符集。
+
+如果不想对表结构进行修改或者重新编译MySQL，也可以在查询语句的 order by 部分使用 CONVERT 函数。比如 select * from mytable order by CONVERT(chineseColumnName USING gbk);
+UTF8 默认校对集是 utf8_general_ci , 它不是按照中文来的。你需要强制让MySQL按中文来排序。
+
+
+
+### 索引以及底层原理
 
 
 

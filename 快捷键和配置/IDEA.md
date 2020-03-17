@@ -36,6 +36,15 @@ ctr + 鼠标左键
 alt + 7
 ```
 
+### 查看文档
+
+```java
+ctrl + q	//显示文档
+ctrl + p	//显示参数列表
+ctrl + b	//转到定义
+ctrl + shift + b	//转到实现
+```
+
 
 
 

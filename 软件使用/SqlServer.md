@@ -93,3 +93,15 @@ RECONFIGURE
 GO
 ```
 
+
+
+### 多行合并成一行
+
+```mssql
+select stuff(
+    (
+        select ',' + cast(bill_log_id as varchar(10)) from sxwy_bill.dbo.bill_log where hl = 1 and fee_item_id in (018,020,022,026,034,036,038,040,056) for xml path('')
+    ),1,1,''
+) 
+```
+

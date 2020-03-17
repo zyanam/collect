@@ -18,3 +18,16 @@
    	
 ```
 
+### 设置 setUnauthorizedUrl 无效
+
+```java
+@Bean
+public SimpleMappingExceptionResolver resolver() {
+    SimpleMappingExceptionResolver resolver = new SimpleMappingExceptionResolver();
+    Properties properties = new Properties();
+    properties.setProperty("org.apache.shiro.authz.UnauthorizedException", "/auth/unauthorized");
+    resolver.setExceptionMappings(properties);
+    return resolver;
+}
+```
+
