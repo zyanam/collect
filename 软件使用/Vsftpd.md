@@ -78,6 +78,15 @@ pasv_max_port=65410
 
 #FTP访问目录
 local_root=/data/ftp/
+
+# 开启记录详细的日志
+dual_log_enable=YES
+vsftpd_log_file=/var/log/vsftpd.log
+
+# 被动模式的情况下，服务端返回的IP地址。如果不指定，返回本机地址。监听ipv6的情况下返回0，0，0，0
+pasv_address=60.10.139.111
+
+
 ```
 
 ### 创建用户
@@ -111,4 +120,13 @@ Thu Jan  2 22:15:57 2020 1 ::ffff:192.168.89.210 0 /mnt/nfs1/ftpservice/04564564
 | 0                                                            | 认证方式："0"无；"1"RFC931认证；                             |
 | *                                                            | 认证用户id，"*"表示无法获取id                                |
 | i                                                            | 完成状态："i"传输未完成；"c"传输已完成；                     |
+
+### 被动模式端口号计算
+
+```shell
+227 Entering Passive Mode (192,168,89,219,207,56).
+207 * 256 + 56
+```
+
+
 

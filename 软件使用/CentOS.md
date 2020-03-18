@@ -56,7 +56,12 @@ ls -lrt
 ### ssh
 
 ```shell
-ssh root@60.10.139.120 -p 2206
+$ ssh root@60.10.139.120 -p 2206
+
+$ ssh -p8224 -i ./id_rsa root@60.10.139.111
+
+#如果提示 “ WARNING: UNPROTECTED PRIVATE KEY FILE! ”，是私钥读写权限问题，权限修改为600，如下：
+$ chmod 600 ./id_rsa
 ```
 
 - -p 指定端口号（小写）
@@ -64,7 +69,10 @@ ssh root@60.10.139.120 -p 2206
 ### scp
 
 ```shell
-scp -P 2206 *.jar root@60.10.139.120:~/
+$ scp -P 2206 *.jar root@60.10.139.120:~/
+
+$ scp -P8222 -i ~/rsakyes/id_rsa_test ./codeserver/bd_809_gateway/target/bd_809_gateway-1.0.3.jar root@60.10.139.111:/usr/local/beidou-809-server
+
 ```
 
 - -P 指定端口号(大写)
@@ -105,8 +113,6 @@ ping baidu.com | tee ping-baidu.log #输出到控制台的同时，将内容保�
 (e.g.)tar -zvxf <tarfile>
 -C			指定解压目录
 ```
-
-
 
 ### 高并发优化
 
@@ -183,7 +189,13 @@ net.ipv4.tcp_fin_timeout = 1
 #### 重载配置
 
 ```shell
- sysctl -p
+$ sysctl -p
+```
+
+### 修改时区
+
+```shell
+$ 
 ```
 
 
