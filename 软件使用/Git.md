@@ -14,7 +14,30 @@ git branch -a #查看所有分支
 
 ```shell
 git checkout -b dev1078 origin/dev1078 #迁出远程分支，在本地建立分支
+```
 
+#### git reflog
+
+```shell
+git reflog #列出命令历史纪录
+```
+
+#### git remote
+
+```shell
+#远程分支管理
+git remote -v #显示详细信息
+git remote add origin git@192.168.89.201:cheguansuo/theoretical_testing/exam_server.git #添加远程分支
+```
+
+#### git push
+
+```shell
+#推送本地分支到远程
+git push origin 
+git push --set-upstream origin master #设置要追踪的远程分支
+git branch -u origin/master	#同上
+git brance -vv #查看远程分支追踪
 ```
 
 

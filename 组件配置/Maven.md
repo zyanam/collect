@@ -407,5 +407,57 @@ dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/test");
 </properties>
 ```
 
+### 多模块打包
+
+> 先分别install
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <!-- 指定该Main Class为全局的唯一入口 -->
+                <mainClass>com.zjts.anticheatserver.AnticheatServerApp</mainClass>
+                <layout>ZIP</layout>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
+
+### 打包时关掉单元测试
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
 
 
