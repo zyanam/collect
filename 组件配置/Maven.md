@@ -395,7 +395,7 @@ dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/test");
 </dependency>
 ```
 
-#### 设置java版本，以及字符编码设置
+### 设置java版本，以及字符编码设置
 
 ```properties
 <properties>
@@ -409,7 +409,7 @@ dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/test");
 
 ### 多模块打包
 
-> 先分别install
+> 各个模块先分别 install
 
 ```xml
 <build>
