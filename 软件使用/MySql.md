@@ -89,5 +89,82 @@ UTF8 默认校对集是 utf8_general_ci , 它不是按照中文来的。你需�
 
 ### 索引以及底层原理
 
+### Windows 安装 MySQL 5.7
 
+> 卸载
+
+```shell
+net stop mysql
+mysqld --remove mysql
+```
+
+> 配置环境变量 MYSQL_HOME 并在 path 中加入 %MYSQL_HOME%\bin
+
+> 创建data、uploads目录，以及 my.ini配置文件
+
+```ini
+[mysqld]
+port=3306
+character_set_server=utf8
+basedir=E:\mysql5.7.23
+datadir=E:\mysql5.7.23\data
+server-id=1
+sql_mode=NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+lower_case_table_names=1
+innodb_file_per_table = 1
+log_timestamps=SYSTEM
+
+log-error   = error.log
+slow_query_log = 1
+slow_query_log_file = slow.log
+long_query_time = 5
+log-bin = binlog
+binlog_format = row
+expire_logs_days = 15
+log_bin_trust_function_creators = 1
+secure-file-priv=E:\mysql5.7.23\Uploads
+
+[client]   
+default-character-set=utf8
+```
+
+> 执行命令
+
+```shell
+#初始化
+mysqld --initialize-insecure
+#可能提示 msvcr120.dll 找不到，需要安装 vcredist_x64.exe
+#可能提示 Could not create or access the registry key needed for the MySQL application to log to the Windows EventLog. Run the application with sufficient privileges once to create the key, add the key manually, or turn off logging for that application. 则需要使用管理员权限打开 cmd.exe
+
+#注册 MySQL 服务
+mysqld --install MySQL57
+
+#启动 MySQL
+net start MySQL57
+```
+
+> 查询初始密码，打开 data 目录下面的 err.log 搜索 "pass" 找到初始密码，有可能是空
+
+```mysql
+# 登录mysql
+mysql -uroot
+
+#修改root密码并刷新权限
+alter user 'root'@'localhost' identified by '123456';
+flush privileges;
+```
+
+> 备份脚本，可以放计划任务中每天执行，自动删除7天以前的备份
+
+```powershell
+rem auther:wang
+rem date:20190526
+rem ******MySQL backup start********
+@echo off
+forfiles /p "E:\MySQLdata_Bak\mysql_backup" /m backup_*.sql -d -7 /c "cmd /c del /f @path"
+set "Ymd=%date:~0,4%%date:~5,2%%date:~8,2%0%time:~1,1%%time:~3,2%%time:~6,2%"
+"E:\mysql5.7.23\bin\mysqldump" -uroot -p123456 -P3306 --default-character-set=utf8 -R -E --single-transaction  --all-databases > "E:\MySQLdata_Bak\mysql_backup\backup_%Ymd%.sql"
+@echo on
+rem ******MySQL backup end********
+```
 
